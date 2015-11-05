@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.bozidar.labas.micromvp.MovieApplication;
 import com.bozidar.labas.micromvp.R;
 import com.bozidar.labas.micromvp.model.Movie;
 import com.bozidar.labas.micromvp.ui.adapter.MovieListAdapter;
@@ -19,6 +20,7 @@ public class MovieListActivity extends AppCompatActivity {
     @Bind(R.id.recycler_view_movies)
     RecyclerView recyclerViewMovies;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +28,13 @@ public class MovieListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         initializeRecyclerView();
+        initializeDependencyInjector();
         showMovieList(mockMovies());
+    }
+
+    private void initializeDependencyInjector() {
+        MovieApplication movieApplication = (MovieApplication) getApplication();
+        movieApplication.getAppComponent().inject(this);
     }
 
     private void showMovieList(ArrayList<Movie> movies) {

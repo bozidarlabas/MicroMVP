@@ -7,6 +7,6 @@ import java.util.List;
 /**
  * Created by Bozidar on 05.11.2015..
  */
-public interface MovieView extends View {
-    void showMovieList(List<Movie> movies);
+public interface View {
+    void showMoviesList(List<Movie> movies);
 }
