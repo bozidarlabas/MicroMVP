@@ -1,17 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><!--suppress Annotator -->
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="vertical">
 
     <ImageView
+        android:contentDescription="Image"
+        android:id="@+id/iv_item_movie_header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        tools:src="@drawable/hunger_games" />
+        android:background="@drawable/hunger_games"/>
 
     <TextView
+        android:id="@+id/tv_item_movie_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/gradient_dark"
@@ -22,6 +24,6 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         android:textColor="@color/white"
         android:textSize="25sp"
-        tools:text="@string/movie_title_hunger_games" />
+        android:text="@string/movie_title_hunger_games" />
 
 </FrameLayout>
