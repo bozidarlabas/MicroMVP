@@ -7,10 +7,17 @@ import android.support.v7.widget.RecyclerView;
 
 import com.bozidar.labas.micromvp.MovieApplication;
 import com.bozidar.labas.micromvp.R;
+import com.bozidar.labas.micromvp.injector.AppModule;
+import com.bozidar.labas.micromvp.injector.components.DaggerMovieComponent;
+import com.bozidar.labas.micromvp.injector.modules.ActivityModule;
+import com.bozidar.labas.micromvp.injector.modules.MovieModule;
 import com.bozidar.labas.micromvp.model.Movie;
 import com.bozidar.labas.micromvp.ui.adapter.MovieListAdapter;
+import com.bozidar.labas.micromvp.ui.mvp.presenter.impl.MovieListPresenter;
 
 import java.util.ArrayList;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -19,6 +26,9 @@ public class MovieListActivity extends AppCompatActivity {
 
     @Bind(R.id.recycler_view_movies)
     RecyclerView recyclerViewMovies;
+
+    @Inject
+    MovieListPresenter movieListPresenter;
 
 
     @Override
@@ -34,7 +44,12 @@ public class MovieListActivity extends AppCompatActivity {
 
     private void initializeDependencyInjector() {
         MovieApplication movieApplication = (MovieApplication) getApplication();
-        movieApplication.getAppComponent().inject(this);
+
+        DaggerMovieComponent.builder()
+                .movieModule(new MovieModule())
+                .activityModule(new ActivityModule(this))
+                .appModule(new AppModule(movieApplication))
+                .build().inject(this);
     }
 
     private void showMovieList(ArrayList<Movie> movies) {
