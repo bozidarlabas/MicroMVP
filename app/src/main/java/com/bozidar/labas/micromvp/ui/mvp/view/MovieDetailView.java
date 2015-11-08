@@ -5,5 +5,8 @@ package com.bozidar.labas.micromvp.ui.mvp.view;
  */
 public interface MovieDetailView extends View{
     void startLoading();
+
     void stopLoading();
+
+    void showMovieDetails(String detail);
 }
