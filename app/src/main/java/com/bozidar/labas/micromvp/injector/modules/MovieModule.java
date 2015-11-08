@@ -20,12 +20,12 @@ public class MovieModule {
     @ActivityScope
     List<Movie> provideMovies(){
         List<Movie> movies = new ArrayList<>(6);
-        movies.add(new Movie("Paperman", R.drawable.paperman));
-        movies.add(new Movie("Godfather", R.drawable.godfather));
-        movies.add(new Movie("Hunger Games", R.drawable.hunger_games));
-        movies.add(new Movie("Interstellar", R.drawable.interstellar));
-        movies.add(new Movie("Whiplash", R.drawable.whiplash));
-        movies.add(new Movie("Redemption", R.drawable.redemtion));
+        movies.add(new Movie("Paperman", R.drawable.paperman, "1"));
+        movies.add(new Movie("Godfather", R.drawable.godfather, "2"));
+        movies.add(new Movie("Hunger Games", R.drawable.hunger_games, "3"));
+        movies.add(new Movie("Interstellar", R.drawable.interstellar, "4"));
+        movies.add(new Movie("Whiplash", R.drawable.whiplash, "5"));
+        movies.add(new Movie("Redemption", R.drawable.redemtion, "5"));
         return movies;
     }
 }

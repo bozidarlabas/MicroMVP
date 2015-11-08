@@ -12,6 +12,7 @@ import com.bozidar.labas.micromvp.injector.components.DaggerMovieComponent;
 import com.bozidar.labas.micromvp.injector.modules.ActivityModule;
 import com.bozidar.labas.micromvp.model.Movie;
 import com.bozidar.labas.micromvp.ui.adapter.MovieListAdapter;
+import com.bozidar.labas.micromvp.ui.listener.RecyclerClickListener;
 import com.bozidar.labas.micromvp.ui.mvp.presenter.Presenter;
 import com.bozidar.labas.micromvp.ui.mvp.view.MovieView;
 
@@ -22,7 +23,7 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MovieListActivity extends AppCompatActivity implements MovieView{
+public class MovieListActivity extends AppCompatActivity implements MovieView, RecyclerClickListener {
 
     @Bind(R.id.recycler_view_movies)
     RecyclerView recyclerViewMovies;
@@ -67,7 +68,12 @@ public class MovieListActivity extends AppCompatActivity implements MovieView{
 
     @Override
     public void showMovieList(List<Movie> movies) {
-        MovieListAdapter movieListAdapter = new MovieListAdapter(movies, this);
+        MovieListAdapter movieListAdapter = new MovieListAdapter(movies, this, this);
         recyclerViewMovies.setAdapter(movieListAdapter);
+    }
+
+    @Override
+    public void onElementClick(int position) {
+        movieListPresenter.goToDetailsActivity();
     }
 }

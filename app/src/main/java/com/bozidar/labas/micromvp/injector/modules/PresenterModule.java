@@ -1,5 +1,7 @@
 package com.bozidar.labas.micromvp.injector.modules;
 
+import android.content.Context;
+
 import com.bozidar.labas.micromvp.model.Movie;
 import com.bozidar.labas.micromvp.ui.mvp.presenter.Presenter;
 import com.bozidar.labas.micromvp.ui.mvp.presenter.impl.MovieListPresenter;
@@ -16,7 +18,7 @@ import dagger.Provides;
 public class PresenterModule {
 
     @Provides
-    public Presenter provideMovielistPresenter(List<Movie> movies){
-        return new MovieListPresenter(movies);
+    public Presenter provideMovielistPresenter(List<Movie> movies, Context context){
+        return new MovieListPresenter(movies, context);
     }
 }

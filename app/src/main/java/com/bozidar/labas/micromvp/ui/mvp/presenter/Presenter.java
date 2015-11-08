@@ -7,4 +7,5 @@ import com.bozidar.labas.micromvp.ui.mvp.view.MovieView;
  */
 public interface Presenter {
     void attachView(MovieView v);
+    void goToDetailsActivity();
 }
