@@ -2,7 +2,9 @@ package com.bozidar.labas.micromvp;
 
 import android.app.Application;
 
+import com.bozidar.labas.micromvp.injector.AppModule;
 import com.bozidar.labas.micromvp.injector.components.AppComponent;
+import com.bozidar.labas.micromvp.injector.components.DaggerAppComponent;
 
 /**
  * Created by Bozidar on 05.11.2015..
@@ -17,8 +19,8 @@ public class MovieApplication extends Application {
         initializeInjector();
     }
 
-    private void initializeInjector() {
-      // appComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
+        private void initializeInjector() {
+       appComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
     }
 
     public AppComponent getAppComponent() {

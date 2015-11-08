@@ -63,7 +63,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
             tvMovieTitle.setText(movie.getTitle());
 
             Glide.with(context)
-                    .load(movie.getThumbnail())
+                    .load(movie.getImageResource())
                     .into(ivMovieHeader);
         }
     }

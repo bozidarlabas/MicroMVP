@@ -4,6 +4,7 @@ import com.bozidar.labas.micromvp.injector.ActivityScope;
 import com.bozidar.labas.micromvp.injector.AppModule;
 import com.bozidar.labas.micromvp.injector.modules.ActivityModule;
 import com.bozidar.labas.micromvp.injector.modules.MovieModule;
+import com.bozidar.labas.micromvp.injector.modules.PresenterModule;
 import com.bozidar.labas.micromvp.ui.activity.MovieListActivity;
 
 import dagger.Component;
@@ -16,7 +17,8 @@ import dagger.Component;
         dependencies = AppModule.class,
         modules = {
                 MovieModule.class,
-                ActivityModule.class
+                ActivityModule.class,
+                PresenterModule.class
         })
 public interface MovieComponent {
     void inject(MovieListActivity activity);
